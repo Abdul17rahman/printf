@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			format++;
-
 			char ch = format[i];
 
 			if (ch == 'c')
@@ -33,8 +31,7 @@ int _printf(const char *format, ...)
 				print_str(va_arg(ptr, char *));
 			}
 		}
-		else
-			putchar(format[i]);
+		putchar(format[i]);
 	}
 	va_end(ptr);
 	return (len);
