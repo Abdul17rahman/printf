@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 {
 	int i, len = strlen(format);
 
+	char ch;
 	va_list ptr;
 
 	va_start(ptr, format);
@@ -20,7 +21,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			char ch = format[i];
+			i++;
+			ch = format[i];
 
 			if (ch == 'c')
 			{
@@ -30,6 +32,7 @@ int _printf(const char *format, ...)
 			{
 				print_str(va_arg(ptr, char *));
 			}
+			format++;
 		}
 		putchar(format[i]);
 	}
