@@ -23,9 +23,7 @@ int _printf(const char *format, ...)
 		if (*copy == '%')
 		{
 			copy++;
-			char ch = *copy;
-
-			switch (ch)
+			switch (*copy)
 			{
 				case 'c':
 					print_char(va_arg(ptr, int));
