@@ -15,8 +15,8 @@ int main(void)
     int len4;
     char str[] = "String";
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
+    len = _printf("Let's try%% to printf a simple sentence.\n");
+    len2 = printf("Let's try%% to printf a simple sentence.\n");
 
     len3 = _printf("%c\n", 'H');
     len4 = _printf("%s", str);

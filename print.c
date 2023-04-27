@@ -17,6 +17,9 @@ int _printf(const char *format, ...)
 
 	va_start(ptr, format);
 
+	if (format == NULL)
+		return (-1);
+
 	for (i = 0; i < len; i++)
 	{
 		if (format[i] == '%')
@@ -31,6 +34,10 @@ int _printf(const char *format, ...)
 			if (ch == 's')
 			{
 				print_str(va_arg(ptr, char *));
+			}
+			if (ch == '%')
+			{
+				print_char(ch);
 			}
 			format++;
 		}
