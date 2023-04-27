@@ -12,13 +12,13 @@ int _printf(const char *format, ...)
 {
 	int i, len = strlen(format);
 
-	char *copy;
+	char *copy = strdup(format);
 
 	va_list ptr;
 
 	va_start(ptr, format);
 
-	for (copy = strdup(format); *copy != '\0'; copy++)
+	while (*copy != '\0')
 	{
 		if (*copy == '%')
 		{
@@ -32,9 +32,13 @@ int _printf(const char *format, ...)
 					print_str(va_arg(ptr, char *));
 					break;
 			}
+			copy++;
 		}
 		else
+		{
 			putchar(*copy);
+			copy++;
+		}
 	}
 	va_end(ptr);
 	return (len);
