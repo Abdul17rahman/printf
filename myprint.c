@@ -12,16 +12,18 @@ int _printf(const char *format, ...)
 {
 	int i, len = strlen(format);
 
+	char *copy;
+
 	va_list ptr;
 
 	va_start(ptr, format);
 
-	for (i = 0; i < len; i++)
+	for (copy = strdup(format); *copy != '\0'; copy++)
 	{
-		if (format[i] == '%')
+		if (*copy == '%')
 		{
-			format++;
-			char ch = format[i];
+			copy++;
+			char ch = *copy;
 
 			switch (ch)
 			{
@@ -34,7 +36,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-			putchar(format[i]);
+			putchar(*copy);
 	}
 	va_end(ptr);
 	return (len);
