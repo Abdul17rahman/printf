@@ -12,34 +12,29 @@ int _printf(const char *format, ...)
 {
 	int i, len = strlen(format);
 
-	va_list fmt;
+	va_list ptr;
 
-	va_start(fmt, format);
+	va_start(ptr, format);
 
 	for (i = 0; i < len; i++)
 	{
 		if (format[i] == '%')
 		{
-			char place = format[i] + 1;
+			format++;
+			char pl = format[i];
 
-			if (place == 'c')
+			if (pl == 'c')
 			{
-				char c = va_arg(fmt, int);
-
-				putchar(c);
+				print_char(va_arg(ptr, int));
 			}
-			if (place == 's')
+			if (pl == 's')
 			{
-				char *str = va_arg(fmt, char *);
-
-				write(STDOUT_FILENO, str, sizeof(str));
+				print_str(va_arg(ptr, char *));
 			}
 		}
 		else
-		{
 			putchar(format[i]);
-		}
 	}
-	va_end(fmt);
+	va_end(ptr);
 	return (len);
 }
