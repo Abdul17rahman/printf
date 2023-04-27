@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, len = strlen(format);
+	int len = strlen(format);
 
 	char *copy = strdup(format);
 
