@@ -20,13 +20,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			char pl = format[i + 1];
+			i++;
+			char ch = format[i];
 
-			if (pl == 'c')
+			if (ch == 'c')
 			{
 				print_char(va_arg(ptr, int));
 			}
-			if (pl == 's')
+			if (ch == 's')
 			{
 				print_str(va_arg(ptr, char *));
 			}
