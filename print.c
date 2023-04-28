@@ -39,6 +39,10 @@ int _printf(const char *format, ...)
 			{
 				length += print_char(ch);
 			}
+			if (ch == 'i' || ch == 'd')
+			{
+				length += print_int(va_arg(ptr, int));
+			}
 			format++;
 		}
 		else

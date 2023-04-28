@@ -32,3 +32,22 @@ int print_str(char *str)
 	}
 	return (write(1, str, strlen(str)));
 }
+
+/**
+ * print_int - prints a string
+ * @n: integer
+ *
+ * Description: Prints the string passed in.
+ * Return: number of chars printed
+ */
+
+int print_int(int n)
+{
+	if (n > 9)
+	{
+		int a = n / 10;
+		print_int(a);
+	}
+	putchar(n % 10 + '0');
+	return (0);
+}
