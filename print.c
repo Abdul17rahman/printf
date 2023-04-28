@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 
 			if (ch == 'c')
 			{
-				length += print_char((char) va_arg(ptr, int));
+				length += print_char(va_arg(ptr, int));
 			}
 			if (ch == 's')
 			{
