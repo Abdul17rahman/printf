@@ -10,8 +10,7 @@
 
 int print_char(char c)
 {
-	putchar(c);
-	return (0);
+	return (write(1, &c, sizeof(char)));
 }
 
 /**
@@ -24,6 +23,5 @@ int print_char(char c)
 
 int print_str(char *str)
 {
-	puts(str);
-	return (0);
+	return (write(1, str, sizeof(char)));
 }

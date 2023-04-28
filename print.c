@@ -10,39 +10,40 @@
 
 int _printf(const char *format, ...)
 {
-	int i, len = strlen(format);
+	int length = 0;
 
 	char ch;
 	va_list ptr;
 
 	va_start(ptr, format);
 
-	if (format == NULL)
-		return (-1);
-
-	for (i = 0; i < len; i++)
+	while (*format != '\0')
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			ch = format[i];
+			format++;
+			ch = *format;
 
 			if (ch == 'c')
 			{
-				print_char(va_arg(ptr, int));
+				length += print_char((char) va_arg(ptr, int));
 			}
 			if (ch == 's')
 			{
-				print_str(va_arg(ptr, char *));
+				length += print_str(va_arg(ptr, char *));
 			}
 			if (ch == '%')
 			{
-				print_char(ch);
+				length += print_char(ch);
 			}
 			format++;
 		}
-		putchar(format[i]);
+		else
+		{
+			length += print_char(*format);
+			format++;
+		}
 	}
 	va_end(ptr);
-	return (len);
+	return (length);
 }

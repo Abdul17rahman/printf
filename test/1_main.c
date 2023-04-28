@@ -21,6 +21,8 @@ int main(void)
     len3 = _printf("%c\n", 'H');
     len4 = _printf("%s", str);
 
+    _printf("%c", 'S');
+
     printf("length: %i\n", len);
     printf("length 2: %i\n", len2);
     printf("length 3: %i\n", len3);
