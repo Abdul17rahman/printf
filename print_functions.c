@@ -10,6 +10,8 @@
 
 int print_char(char c)
 {
+	if (!c)
+		return (-1);
 	return (write(1, &c, sizeof(char)));
 }
 
@@ -23,5 +25,10 @@ int print_char(char c)
 
 int print_str(char *str)
 {
+	if (!str)
+	{
+		write(1, "(null)", strlen("(null)"));
+		return (-1);
+	}
 	return (write(1, str, strlen(str)));
 }
