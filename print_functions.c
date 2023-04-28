@@ -46,6 +46,7 @@ int print_int(int n)
 	if (n > 9)
 	{
 		int a = n / 10;
+
 		print_int(a);
 	}
 	putchar(n % 10 + '0');

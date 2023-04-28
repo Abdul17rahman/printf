@@ -28,21 +28,13 @@ int _printf(const char *format, ...)
 			ch = *format;
 
 			if (ch == 'c')
-			{
 				length += print_char(va_arg(ptr, int));
-			}
 			if (ch == 's')
-			{
 				length += print_str(va_arg(ptr, char *));
-			}
 			if (ch == '%')
-			{
 				length += print_char(ch);
-			}
 			if (ch == 'i' || ch == 'd')
-			{
 				length += print_int(va_arg(ptr, int));
-			}
 			format++;
 		}
 		else
