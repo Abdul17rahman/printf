@@ -23,5 +23,5 @@ int print_char(char c)
 
 int print_str(char *str)
 {
-	return (write(1, str, sizeof(char)));
+	return (write(1, str, strlen(str)));
 }

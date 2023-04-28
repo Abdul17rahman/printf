@@ -13,13 +13,13 @@ int main(void)
     int len2;
     int len3;
     int len4;
-    char str[] = "String";
+    char str[] = "I am a String";
 
     len = _printf("Let's try%% to printf a simple sentence.\n");
     len2 = printf("Let's try%% to printf a simple sentence.\n");
 
     len3 = _printf("%c\n", 'H');
-    len4 = _printf("%s", str);
+    len4 = _printf("%s\n", str);
 
     _printf("%c", 'S');
 
